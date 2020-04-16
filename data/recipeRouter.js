@@ -19,4 +19,9 @@ router.get("/:id/list", (req, res) => {
     .catch(error => res.status(500).json({ error: error.message }))
 })
 
+router.get("/:id/instructions", (req, res) => {
+    Recipes.getInstructions(req.params.id).then(recipes => res.status(200).json(recipes))
+    .catch(error => res.status(500).json({ error: error.message }))
+})
+
 module.exports = router;
